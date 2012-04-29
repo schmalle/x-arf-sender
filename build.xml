@@ -1,0 +1,35 @@
+<project name="Make xarf sender library" default="dist" basedir=".">
+    <description>
+        simple example build file
+    </description>
+
+    <target name="dist" description="generate the distribution" depends="compile">
+
+
+        <jar destfile="./xarf.jar">
+             <fileset dir="./out/"/>
+
+         </jar>
+
+
+    </target>
+
+    <target name="compile" depends="clean">
+
+
+
+        <javac srcdir="./src/"
+               destdir="./out/"
+               classpath="./libs/mail.jar:./libs/mailapi.jar:./libs/smtp.jar"
+               debug="on">
+        </javac>
+
+    </target>
+
+    <target name="clean">
+        <delete file="./xarf.jar"/>
+        <mkdir dir="./out/"/>
+    </target>
+
+
+</project>
